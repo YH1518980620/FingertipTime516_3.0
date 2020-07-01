@@ -35,7 +35,7 @@ public class DBUtil {
 	//通用增删改
 	public static boolean executeUpdate(String sql,Object[] params) {
 			System.out.println(sql);
-			System.out.println(params[2]);
+			System.out.println(params.toString());
 			try {
 			pstmt=createPreparedStatement(sql,params);
 			int count =pstmt.executeUpdate();

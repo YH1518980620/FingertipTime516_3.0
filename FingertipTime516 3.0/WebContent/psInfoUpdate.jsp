@@ -26,7 +26,7 @@
              <p>
                 <label>当前头像：</label>
                 <span >
-        			<img  src="/picture/touxiang.jpg" width=100>
+        			<img  src="image/touxiang.png" width=100>
                 </span>
             </p>
             <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">个人信息</font></font></h3>

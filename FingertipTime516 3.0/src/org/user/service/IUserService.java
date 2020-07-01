@@ -11,7 +11,7 @@ public interface IUserService {
 	
 	public User queryUserByUid(String uid) ;
 	
-	public boolean updateUserByUidAndUpwd(User user);
+	public boolean updateUserByUid(User user);
 	
 	public boolean deleteUser(String uid,String upwd);
 	

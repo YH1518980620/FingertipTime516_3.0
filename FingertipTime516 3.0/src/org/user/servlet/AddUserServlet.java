@@ -20,6 +20,7 @@ public class AddUserServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String id=request.getParameter("uid");
 		String pwd=request.getParameter("upwd");
+		System.out.println(pwd);
 		User user=new User(id,null,null,pwd,null,null,null);
 		
 		//先设置响应编码，在out之前设置

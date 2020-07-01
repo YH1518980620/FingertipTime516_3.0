@@ -28,6 +28,7 @@ public class UserDaoImpl implements IUserDao{
 	public boolean addUser(User user) {
 			String sql="insert into userinfo values(?,?,?,?,?,?,?)";
 			Object[] params= {user.getUid(),user.getUname(),user.getUpwd(),user.getUsex(),user.getUimage(),user.getUdate(),user.getUimage_name()};
+			System.out.println("这里是注册传参"+user.getUpwd());
 			return DBUtil.executeUpdate(sql,params);
 
 	}
@@ -40,9 +41,9 @@ public class UserDaoImpl implements IUserDao{
 	
 
 	
-	public boolean updateUserByUidAndUpwd(User user) {
-			String sql="update userinfo set uname=?,usex=? where uid=?";
-			Object[] params= {user.getUname(),user.getUsex(),user.getUid()};
+	public boolean updateUser(User user) {
+			String sql="update userinfo set uname=?,usex=?,udate=? where uid=?";
+			Object[] params= {user.getUname(),user.getUsex(),user.getUdate(),user.getUid()};
 			return DBUtil.executeUpdate(sql,params);
 	}
 	
@@ -105,7 +106,9 @@ public class UserDaoImpl implements IUserDao{
 				String name=rs.getString("uname");
 				String sex=rs.getString("usex");
 				String pwd=rs.getString("upwd");
-				user=new User(id,name,sex,pwd,null,null,null);
+				Date date=rs.getDate("udate");
+				//System.out.println("这里是queryUserByUid"+date);
+				user=new User(id,name,sex,pwd,null,date,null);
 			}
 			return user;
 			}

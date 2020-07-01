@@ -12,7 +12,7 @@ public interface IUserDao {
 	public boolean deleteUserByUidAndUpwd(String uid,String upwd);
 	
 	
-	public boolean updateUserByUidAndUpwd(User user) ;
+	public boolean updateUser(User user) ;
 	
 	//用户名查询
 	public List<User> queryUserByUname(String uname) ;

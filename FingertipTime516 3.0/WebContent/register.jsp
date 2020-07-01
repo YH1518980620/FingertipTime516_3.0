@@ -51,17 +51,20 @@
                 <span>确认密码</span>
                 <span class="info" style="display: none">两次输入的密码不一致</span>
                 <input type="password" id="p2" required>
-                <input type="hidden" name="pwd" id="realp">
+                <input type="hidden" name="upwd" id="realp">
             </div>
             <div class="register-but">
-                <input type="submit" value="注册用户" onclick="settype('user')">
-                <input type="submit" value="注册管理员" onclick="settype('manager')">
+                <input type="submit" value="注册用户">
+                <input type="submit" value="注册管理员" >
                 <input type="hidden"  id="selectedtype" name="select" value="">
                 <script>
                     function settype(type) {
                         document.getElementById("selectedtype").value=type;
                     }
                 </script>
+                <div style="position:relative;margin-left: -100px;margin-top: -30px">
+                	<a href="login.jsp" style="font-size: 20px;color: green;">返回登录</a>
+                </div>
             </div>
         </div>
     </form>

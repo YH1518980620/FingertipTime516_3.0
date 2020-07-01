@@ -20,20 +20,23 @@ public class CheckServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		
 		String id=request.getParameter("uid");
 		String pwd=request.getParameter("upwd");
 		//System.out.println(id+pwd);
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("utf-8");
 		IUserService service=new UserServiceImpl();
+		User currentuser=service.queryUserByUid(id);
 		boolean result=service.login(id, pwd);
 		if(result) {
+			request.setAttribute("currentUser", currentuser);
 			request.getRequestDispatcher("userAccount.jsp").forward(request, response);
 			//System.out.println("登陆成功");
 		}else {
 			//System.out.println("登陆失败");
-			request.setAttribute("loginErro","此用户不存在，请注册用户！");
-			request.getRequestDispatcher("register.jsp").forward(request, response);
+			request.setAttribute("loginErro","此用户不存在或密码错误，请注册用户！");
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}
 

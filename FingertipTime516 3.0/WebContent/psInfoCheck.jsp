@@ -4,6 +4,7 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.ParseException" %>
+<%@ page import="org.user.entity.User" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,13 +21,14 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
 <div class="register">
     <form id="register-form"  class="register-table" action="psInfoUpdate.jsp" method="post" >
         <div class="  register-top-grid">
              <p>
                 <label>当前头像：</label>
                 <span >
-        			<img  src="/picture/touxiang.jpg" width=100>
+        			<img  src="image/touxiang.png" width=100>
                 </span>
             </p>
             <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">个人信息</font></font></h3>
@@ -47,18 +49,22 @@
             <div class="clearfix"> </div> 
             <div class="mation">
                 <span>生日</span>
-                <input type="text" name="ubirth" readonly="readonly" value="<%=request.getParameter("udate")%>">
+                <input type="text" name="ubirth" readonly="readonly" value="<%=request.getParameter("ubirth")%>">
             </div>
             <div class="clearfix"> </div>
             <div class="mation">
                 <span>密码</span>
-                <input type="password" name="upwd" readonly="readonly" value="<%=request.getParameter("upwd") %>">
+                <input type="text" name="upwd" readonly="readonly" value="<%=request.getParameter("upwd") %>">
             </div>
             <div class="clearfix"> </div>
             
         </div>
         <div class="  register-bottom-grid">
             <div class="register-but">
+            	<a href="BackServlet?uid=<%=request.getParameter("uid")%>
+            	&uname=<%=request.getParameter("uname")%>&usex=<%=request.getParameter("usex")%>
+            	&ubirth=<%=request.getParameter("ubirth")%>&upwd=<%=request.getParameter("upwd")%>
+            	">返回界面</a>
                 <input type="submit" value="修改信息">
             </div>
         </div>

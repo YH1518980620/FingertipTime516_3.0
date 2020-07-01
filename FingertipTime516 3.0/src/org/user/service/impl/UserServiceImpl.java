@@ -23,8 +23,8 @@ public class UserServiceImpl implements IUserService{
 		return userDao.queryUserByUid(uid);
 	}
 	
-	public boolean updateUserByUidAndUpwd(User user) {
-		return userDao.updateUserByUidAndUpwd(user);
+	public boolean updateUserByUid(User user) {
+		return userDao.updateUser(user);
 	}
 	
 	//µÇÂ¼

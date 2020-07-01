@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="org.user.entity.User" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.ParseException" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,14 +36,24 @@
     </style>
 </head>
 <body class="backimage">
+
+	<%
+		User cU=(User)request.getAttribute("currentUser");
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+		String currentBirth=sdf.format(cU.getUdate());
+		//System.out.println(cU.getUdate().toString());
+	%>
+
 <div class="sns-nf">
-    <form id="baseInfoForm" name="baseInfoForm" method="post" class="infoForm">
+    <form id="baseInfoForm" name="baseInfoForm" method="post" class="infoForm" action="login.jsp">
         
         <div id="main-profile" class="parts">
             <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></h3>
         <div>
-        	<a href="psInfoCheck.jsp">
-        		<img  src="/picture/touxiang.jpg" width=110>
+        	<a href="psInfoCheck.jsp?uid=<%=cU.getUid() %>
+        	&uname=<%=cU.getUname()%>&usex=<%=cU.getUsex()%>&ubirth=<%=currentBirth%>&upwd=<%=cU.getUpwd()%>
+        	">
+        		<img  src="image/touxiang.png" width=110>
         	</a>
         	<div style="position:relative;margin-left: +120px;margin-top: -40px">
         	    <a href="#">
@@ -67,16 +81,17 @@
         	    	<input type="button" style="width: 452px;height: 40px" value="创作中心"  onclick="jump2()">
         	    	<script type="text/javascript">
         	    		function jump2(){
-        	    			window.location.href ="http://localhost:8888/FingertipTime516_3.0/psInfoCheck.jsp";
+        	    			window.location.href ="http://localhost:8888/FingertipTime516_3.0/none.jsp";
         	    		}
         	    	</script>
         	    </div>
         	    <div style="position:relative;margin-left: -132px;margin-top: 0px">
-        	    	<input type="button" style="width: 452px;height: 40px" value="历史记录">
+        	    	<input type="button" style="width: 452px;height: 40px" value="其他不知名功能">
         	    </div>
         	</div>
         </div>
         </div>
+        <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input type="submit" value="退出登录" ></font></font>
     </form>
 </div>
 </body>
